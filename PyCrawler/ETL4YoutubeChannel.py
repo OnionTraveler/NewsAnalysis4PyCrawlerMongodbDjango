@@ -228,7 +228,7 @@ if __name__ == '__main__':
 # START mongodb service(or called daemon) BY typing in 「service mongodb start」 OR 「cd /usr/mongodb/bin; ./mongod --dbpath /data/db」
 
 #========================= (You MUST do the following BEFORE|WHEN you set up crontab -e)
-# INSTALL mongodb BY 「apt-get install -cron」
+# INSTALL mongodb BY 「apt-get install -y cron」
 # START cron service(or called daemon) BY typing in 「service cron start」
 # WHEN you set up this .py file in 「crontab -e」, you MUST add ENVironmental Variables 「LANG=zh_CN.UTF-8」 before CMD in your editor
 # The following are EXAMPLES when you edit schedule in 「crontab -e」:
