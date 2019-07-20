@@ -1,2 +1,2 @@
 #WHEN you use 「crontab -e」 to run 「ETL4YoutubeChannel.py」 by 「python3 /root/NewsAnalysis4PyCrawlerMongodbDjango/PyCrawler/ETL4YoutubeChannel.py >> /root/NewsAnalysis4PyCrawlerMongodbDjango/PyCrawler/Log4ETL/log4STDout.txt 2>> /root/NewsAnalysis4PyCrawlerMongodbDjango/PyCrawler/Log4ETL/log4STDerr.txt」
-#THEIR 「stdout.txt」 and 「stderr.txt」 WILL BE WRITTEN in this directory
+#THEIR 「log4STDout.txt」 and 「log4STDerr.txt」 WILL BE WRITTEN in this directory
