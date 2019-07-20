@@ -64,7 +64,7 @@ def dataETL4YoutubeChannel(response):
         try:
             videoTitle = t.find("a", id="video-title").text
             videoAddress = officialWebsite4Youtube + t.find("a", id="video-title")["href"]
-            #videoRunTime = t.find("a", id="thumbnail").find("span", class_="style-scope").text  # videoRunTime 常易常，故註解掉不採用
+            #videoRunTime = t.find("a", id="thumbnail").find("span", class_="style-scope").text  # videoRunTime 常易錯，故註解掉不採用
 
             metadata_line = t.find_all("span", class_="style-scope ytd-grid-video-renderer")
             extractionDatetime = getDatetimeByConvertingUTC2("Asia/Taipei")
