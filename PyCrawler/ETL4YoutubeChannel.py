@@ -54,7 +54,7 @@ def dataETL4YoutubeChannel(response):
     # 步驟零：給定資料擷取目標
     officialWebsite4Youtube = "https://www.youtube.com"
     from bs4 import BeautifulSoup # BeautifulSoup 為 bs4.py 的一個類別
-    data = BeautifulSoup(response)
+    data = BeautifulSoup(response, "html.parser")  # 不建議在這裡指定parser，因為每部機台會有其對應最適當的parser會自動去使用  (但這裡指定html.parser僅因其最常用的其中一種parser而以)
 
     videoPublisher = data.find("span", id="channel-title").text
     target = data.find_all("div", id="dismissable")
@@ -71,7 +71,7 @@ def dataETL4YoutubeChannel(response):
             releaseDatetime = extractionDatetime - convertYoutubeDeltatime2Datetime(metadata_line[1].text)
             #viewCounts = metadata_line[0].text
 
-            everyVideoAddressPage = BeautifulSoup(getResponseBySeleniumScroll(videoAddress, 2))  # 注意：由於本動作平均費時約8秒鐘，若擷取資料過多(target)，會影響速度
+            everyVideoAddressPage = BeautifulSoup(getResponseBySeleniumScroll(videoAddress, 2), "html.parser")  # 注意：由於本動作平均費時約8秒鐘，若擷取資料過多(target)，會影響速度
             viewCounts = everyVideoAddressPage.find("span", class_="view-count style-scope yt-view-count-renderer").text
             likeCounts = everyVideoAddressPage.find_all("yt-formatted-string", class_="style-scope ytd-toggle-button-renderer style-text")[0].text  # ["aria-label"]
             dislikeCounts = everyVideoAddressPage.find_all("yt-formatted-string", class_="style-scope ytd-toggle-button-renderer style-text")[1].text  # ["aria-label"]
